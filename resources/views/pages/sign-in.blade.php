@@ -18,7 +18,7 @@
                 :input-other-attribute='"minlength=8"' />
 
             {{-- btn --}}
-            <x-button type="submit" class="btn-success w-100" icon="check">
+            <x-button type="submit" class="btn-success w-100" icon="sign-in" id="submit_btn">
                 Sign In
             </x-button>
 
@@ -29,9 +29,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function(){
             const form = document.getElementById('form-signin');
+            const submit_btn = document.getElementById('submit_btn');
+
             form.addEventListener('submit', async (e)=>{
-                    e.preventDefault();
+                e.preventDefault();
                 e.stopImmediatePropagation();
+
+                submit_btn.disabled = true;
 
                 try {
                     // url
@@ -51,6 +55,7 @@
                     // if 401
                     if(response.status == 401){
                         toastr.error("Error", "Invalid Credentials");
+                        submit_btn.disabled = false;
                         return;
                     }
                     // else show success toast
@@ -59,7 +64,7 @@
                     // redirect
                     setInterval(async () => {
                         const data = await response.json(); // parse reponse json
-
+                        submit_btn.disabled = false;
                         window.location.href = `${data.url}`;
                     }, 1500);
 
@@ -70,6 +75,7 @@
                      */
                     console.error(error.message);
                     toastr.error("Error", "Somethnig Went Wrong Pls Contact Developer");
+                    submit_btn.disabled = false;
                 }
             });
         });

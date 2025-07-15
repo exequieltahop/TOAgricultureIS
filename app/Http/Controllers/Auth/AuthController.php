@@ -25,7 +25,8 @@ class AuthController extends Controller
     }
 
     // sign in
-    public function signInProcess(Request $request){
+    public function signInProcess(Request $request)
+    {
         try {
             // validate
             $request->validate([
@@ -34,15 +35,15 @@ class AuthController extends Controller
             ]);
 
             // if invalid credential then response 401
-            if(!Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return response(null, 401);
             }
 
             // geerate url base from the role
-            if(Auth::user()->role == 1){
-                $url = 'admin/home';
-            }else{
-                $url = 'staff/home';
+            if (Auth::user()->role == 1) {
+                $url = 'admin/dashboard';
+            } else {
+                $url = 'staff/dashboard';
             }
 
             // response 200 with the url
@@ -52,7 +53,22 @@ class AuthController extends Controller
              * log error
              * response 500
              */
-            dd($th->getMessage());
+            Log::error($th->getMessage());
+            return response(null, 500);
+        }
+    }
+
+    // sign out
+    public function signOut()
+    {
+        try {
+            Auth::logout();
+            return redirect()->route('sign-in');
+        } catch (\Throwable $th) {
+            /**
+             * log error
+             * response 500
+             */
             Log::error($th->getMessage());
             return response(null, 500);
         }

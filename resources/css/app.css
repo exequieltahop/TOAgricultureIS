@@ -13,3 +13,19 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 @import '../../node_modules/toastr/build/toastr.css';
 @import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+
+html{
+    font-size: 16px;
+    --primary-color: #063106;
+    /* --secondary-color: #0a540a;
+    --tretiary-color: #0a540a; */
+}
+
+.primary-color{
+    color: var(--primary-color);
+}
+
+.bg-primary-color{
+    background-color: var(--primary-color);
+}

@@ -8,11 +8,9 @@
     </x-slot>
 
     {{-- main --}}
-    <x-slot name="guest">
-        <div {{$attributes->merge(['class' => 'container-fluid p-0 m-0'])}}>
-            {{$slot}}
-        </div>
-    </x-slot>
+    <div {{$attributes->merge(['class' => 'container-fluid p-0 m-0'])}}>
+        {{$slot}}
+    </div>
 
     {{-- footer --}}
     <x-slot name="footer">

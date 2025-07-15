@@ -8,12 +8,20 @@
     <x-slot name="header">
         {{$header ?? ''}}
     </x-slot>
-    {{-- main --}}
-    <x-slot name="auth">
-        <div {{$attributes->merge(['class' => 'container-fluid p-0 m-0'])}}>
-            {{$slot}}
+
+
+    <div class="d-flex">
+        {{-- aside --}}
+        <x-sidenav/>
+
+        <div class="d-flex flex-column w-100 gap-3">
+            <x-header/>
+            <main>
+                {{-- main --}}
+                {{$slot}}
+            </main>
         </div>
-    </x-slot>
+    </div>
 
     {{-- footer --}}
     <x-slot name="footer">

@@ -10,18 +10,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>
-        {{$header ?? ""}}
-    </header>
-    <main>
-        @guest
-            {{$guest}}
-        @endguest
-
-        @auth
-            {{$auth}}
-        @endauth
-    </main>
+    {{$slot}}
     <footer>
         {{$footer ?? ""}}
     </footer>
