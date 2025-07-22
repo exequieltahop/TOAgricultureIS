@@ -1,6 +1,6 @@
 <div {{$attributes->merge(['class' => 'table-responsive'])}}>
     <table class="table {{$tableClass}}" id="{{$tableId}}">
-        <thead>
+        <thead class="text-nowrap">
             @foreach ($ths as $th)
                 <th>{{$th}}</th>
             @endforeach

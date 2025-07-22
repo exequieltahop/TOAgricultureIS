@@ -2,7 +2,9 @@
 $filtered_name = preg_replace('/-/','_', $name);
 @endphp
 <div {{$attributes->merge(['class' => ''])}}>
-    <label for="{{$name}}">{{$label}}</label>
-    <input type="{{$type}}" id={{$name}} name="{{$filtered_name}}" class="form-control" {{ $isRequired==true
-        ? 'required' : '' }}>
+    @if ($label)
+        <label for="{{$name}}" class="fw-bold">{{$label}}</label>
+    @endif
+    <input type="{{$type}}" id={{$name}} name="{{$filtered_name}}" class="form-control" value="{{$value}}" placeholder="{{$placeholder}}"
+        {{$addons}} {{ $isRequired==true ? 'required' : '' }}>
 </div>

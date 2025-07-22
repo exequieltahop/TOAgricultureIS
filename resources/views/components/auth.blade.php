@@ -14,7 +14,7 @@
         {{-- aside --}}
         <x-sidenav/>
 
-        <div class="d-flex flex-column w-100 gap-3">
+        <div class="d-flex flex-column w-100 gap-3 p-3">
             <x-header/>
             <main>
                 {{-- main --}}

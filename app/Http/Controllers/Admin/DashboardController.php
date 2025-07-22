@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index() {
         try {
-            return view('pages.admin.dashboard');
+            return view('pages.admin.dashboard.index');
         } catch (\Throwable $th) {
             /**
              * log error

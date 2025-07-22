@@ -1,4 +1,4 @@
-<aside class="">
+<aside class="d-none d-md-block">
     <nav class="">
         <ul class="nav flex-column p-3">
             <li class="nav-item">
@@ -7,12 +7,14 @@
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{route('admin.users.list')}}" class="nav-link d-flex align-items-center gap-1 rounded {{ str_contains(Route::currentRouteName(), 'admin.users.list') ? 'bg-primary-color text-white' : 'text-dark' }}" style="letter-spacing: 1px;">
-                    <x-icon type="users {{ str_contains(Route::currentRouteName(), 'admin.users.list') ? 'text-white' : 'text-dark' }}" />
-                    Users
-                </a>
-            </li>
+            @if (Auth::user()->role == 1)
+                <li class="nav-item">
+                    <a href="{{route('admin.users.list')}}" class="nav-link d-flex align-items-center gap-1 rounded {{ str_contains(Route::currentRouteName(), 'admin.users') ? 'bg-primary-color text-white' : 'text-dark' }}" style="letter-spacing: 1px;">
+                        <x-icon type="users {{ str_contains(Route::currentRouteName(), 'admin.users') ? 'text-white' : 'text-dark' }}" />
+                        Users
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="{{route('signout')}}" class="nav-link d-flex align-items-center gap-1 rounded {{ str_contains(Route::currentRouteName(), 'signout') ? 'bg-primary-color text-white' : 'text-dark' }}" style="letter-spacing: 1px;">
                     <x-icon type="sign-out {{ str_contains(Route::currentRouteName(), 'signout') ? 'text-white' : 'text-dark' }}" />
