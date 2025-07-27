@@ -14,6 +14,12 @@
                         Users
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('farmers.index')}}" class="nav-link d-flex align-items-center gap-1 rounded {{ str_contains(Route::currentRouteName(), 'farmers') ? 'bg-primary-color text-white' : 'text-dark' }}" style="letter-spacing: 1px;">
+                        <x-icon type="users {{ str_contains(Route::currentRouteName(), 'farmers') ? 'text-white' : 'text-dark' }}" />
+                        Farmers
+                    </a>
+                </li>
             @endif
             <li class="nav-item">
                 <a href="{{route('signout')}}" class="nav-link d-flex align-items-center gap-1 rounded {{ str_contains(Route::currentRouteName(), 'signout') ? 'bg-primary-color text-white' : 'text-dark' }}" style="letter-spacing: 1px;">

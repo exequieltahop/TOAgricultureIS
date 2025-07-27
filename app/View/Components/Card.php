@@ -13,10 +13,10 @@ class Card extends Component
      */
 
     // public var
-    public $iconType, $cardTitle;
+    public $iconType, $cardTitle, $addons;
 
     // construct
-    public function __construct($iconType = '', $cardTitle = '')
+    public function __construct($iconType = '', $cardTitle = '', $addons = '')
     {
         // asign values
         $this->iconType = $iconType;
